@@ -5,9 +5,9 @@ date:   2016-09-26 21:23:37 -0700
 categories: tech
 ---
 
-I'm trying out Jekyll!
-
 DigitalOcean's lovely WordPress instance decided it would constantly throw me `Database Errors` which I couldn't be bothered to fix because, in the end, why do I need a database at all?
+
+So I'm trying out Jekyll!
 
 {% highlight python %}
 # Also:
