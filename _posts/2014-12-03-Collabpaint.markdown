@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "I hosted CollabPaint! And got annoyed at 4-years-ago-Joe."
-date:   2014-02-03 20:00:00 -0700
+date:   2014-12-03 20:00:00 -0700
 categories: tech
 ---
 
