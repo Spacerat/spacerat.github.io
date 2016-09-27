@@ -2,7 +2,7 @@
 layout: post
 title:  "Setting up shop"
 date:   2014-02-08
-categories: dokku
+categories: tech
 ---
 
 I decided to bite the bullet and get myself an actual server on the internets to host my thingamabobs, and here I write about my experience.

@@ -2,7 +2,7 @@
 layout: post
 title:  "Hello Jekyll"
 date:   2016-09-26 21:23:37 -0700
-categories: jekyll blogs
+categories: tech
 ---
 
 I'm trying out Jekyll!

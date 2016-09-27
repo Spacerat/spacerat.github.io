@@ -2,7 +2,7 @@
 layout: post
 title:  "California: impressions, words, photos, food"
 date:   2015-08-18 21:23:37 -0700
-categories: california food
+categories: life
 ---
 
 People keep asking: what’s California like? Everyone has funny accents and rain doesn’t exist.

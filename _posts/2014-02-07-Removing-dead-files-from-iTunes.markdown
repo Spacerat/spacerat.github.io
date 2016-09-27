@@ -2,7 +2,7 @@
 layout: post
 title:  "Removing dead files from iTunes"
 date:   2014-02-07
-categories: itunes blogs
+categories: tech
 ---
 
 So, I made a blog. Mainly so I have a place to put my things.
