@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Projects
+nav: yes
 ---
 This is a partial list of little personal projects I have worked on. Many of them are fairly unpolished, since often the purpose of my projects has simply been to experiment with some new idea, programming tool or framework.
 
@@ -30,6 +31,15 @@ This list only includes things which are actually running right now.
 *   [HexKeyboard](https://github.com/Spacerat/HexKeyboard)  - a musical [Isomorphic Keyboard](https://en.wikipedia.org/wiki/Isomorphic_keyboard) for iOS.
 *   [PrimerWare](https://github.com/Spacerat/PrimerWare "PrimerWare") - a university project with [John Preston](https://github.com/wcerfgba) for which we wrote games in C for an STMPrimer2.
 *   [Arduino-LED-Entertainment-Suite](https://github.com/Spacerat/Arduino-LED-entertainment-suite) - A collection of games for an Arduino plugged into an 8x8 LED matrix and some buttons. Unfortunately I have long forgotten how everything was wired together.
+
+### BlitzMax Games
+
+These are little games I wrote using BlitzMax, pre 2010.
+
+* [Mines](/projects/mines.html) A multiplayer minesweeper clone
+* [Shapes](/projects/shapes.html) A Tetris clone
+* [Quadris](/projects/quadris.html) A geometric puzzle game
+* [Pimorize](/projects/pimorize.html) A program which helps you memorize Pi.
 
 ### Utilities
 
