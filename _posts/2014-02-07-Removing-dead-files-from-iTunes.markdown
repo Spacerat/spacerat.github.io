@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Removing dead files from iTunes"
-date:   2016-09-26 21:23:37 -0700
+date:   2014-02-07
 categories: jekyll update
 ---
 
