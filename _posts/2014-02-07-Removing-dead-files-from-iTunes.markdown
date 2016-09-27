@@ -2,10 +2,14 @@
 layout: post
 title:  "Removing dead files from iTunes"
 date:   2014-02-07
-categories: jekyll update
+categories: itunes blogs
 ---
 
-So, I made a blog. Mainly so I have a place to put my things. I used to have a website which I meticulously handcrafted and put all my stuff on, but it got wiped from the internet and now I'm significantly lazier, Wordpress is a much more attractive option. _[edit: So much for that!]_
+So, I made a blog. Mainly so I have a place to put my things.
+
+I used to have a website which I meticulously handcrafted and put all my stuff on, but it got wiped from the internet and now I'm significantly lazier, Wordpress is a much more attractive option. 
+
+_[edit: Not anymore!]_
 
 Without further ado, I begin the reverse chronological journey through the catalogue of Crap I Made with an underwhelming but still kind of useful entry: an AppleScript which goes through whatever songs you have selected in iTunes and removes any which don't actually point to any files.
 

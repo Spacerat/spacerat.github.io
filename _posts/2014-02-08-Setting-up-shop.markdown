@@ -37,7 +37,7 @@ And done! My terrible, three year old long-polling-based Python-powered incomple
   <a href="/images/mines.png">
     <img src="/thumbnails/mines.png" alt="Minesweeper!" />
   </a>
-  a screenshot from the game
+  a fairly uninformative screenshot from the game
 </div>
 
 As for hosting static pages like [Plotter](http://js.apps.veryjoe.com/plotter "Canvas Plotter") and [Automa](http://js.apps.veryjoe.com/automa "Automa"), all I had to do was make sure the main page was called index.php, and dokku figured out it was a php application and set up an ngnix server for me. This makes me very happy because it means I get to continue my run of never having have to learn how to actually set up a web server properly.

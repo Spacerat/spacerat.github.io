@@ -1,11 +1,13 @@
 ---
 layout: post
 title:  "Hummus Pasta Salad"
-date:   2016-09-26 21:23:37 -0700
-categories: jekyll
+date:   2014-12-07 21:00:00 -0700
+categories: food
 ---
 
-I made this recently by searching for "hummus pasta salad" on google, taking inspiration for a recipe or two and then improvising with what I had. It's surprisingly tasty! The flavours of each component stay relatively separated, so the better your olives/feta/tomatoes/hummus, the better your dish will be. 
+I made this recently by searching for "hummus pasta salad" on google, taking inspiration for a recipe or two and then improvising with what I had. 
+
+It's surprisingly tasty! The flavours of each component stay relatively separated, so the better your olives/feta/tomatoes/hummus, the better your dish will be. 
 
 <div class="thumbnailed">
   <a href="/images/pastasalad.jpg">

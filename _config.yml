@@ -15,8 +15,9 @@
 # in the templates via {{ site.myvariable }}.
 title: Very Joe
 email: spacerat3004@gmail.com
-description: > # this means to ignore newlines until "baseurl:"
-  Joe Atkins-Turkish's personal website
+description: > 
+   Much website. Wow.
+author: Joseph Atkins-Turkish
 baseurl: "" # the subpath of your site, e.g. /blog
 # url: "http://veryjoe.com" # the base hostname & protocol for your site
 twitter_username: thespacerat

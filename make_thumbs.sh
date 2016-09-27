@@ -1,3 +1,8 @@
 #!/bin/sh
-mogrify -path thumbnails -resize 500x\> images/*
+cp -r ./images/. ./thumbnails/
+mogrify -resize 500x\> thumbnails/*.png
+mogrify -resize 500x\> thumbnails/*.jpg
+mogrify -resize 500x\> thumbnails/**/*.png
+mogrify -resize 500x\> thumbnails/**/*.jpg
+
 

@@ -33,8 +33,12 @@ $on-laptop:        800px;
     margin: auto;
     color: $grey-color;
     font-style: oblique;
+    padding-bottom: 1em;
 }
 
+.post-list > li p:after {
+    content: "..";
+}
 
 // Minima also includes a mixin for defining media queries.
 // Use media queries like this:
