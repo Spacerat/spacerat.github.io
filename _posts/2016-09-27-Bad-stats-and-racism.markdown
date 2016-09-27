@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Bad statistics is a friend of racism"
+title:  "Next time you see a racist abuse statistics, here’s how you call them out"
 date:   2016-09-27 12:23:37 -0700
 categories: social
 ---
@@ -9,7 +9,7 @@ If there's one thing which really grinds my gears, it's abuse of statistics. Oh,
 
 The other day while browsing Facebook, I came across a comment posted by a friend (or acquaintance, I hope!) of a friend.
 
-> Black people are 18.5 times more likely to kill a police officer than to be killed by a police officer when unarmed.
+> Black people are 18.5 times more likely to kilmml a police officer than to be killed by a police officer when unarmed.
 
 This is obviously rubbish and ordinarily I would probably have brushed it off as "just another internet racist!" and continued, but I was intrigued by the number 18.5. Where could that have come from? He didn't make it up himself, so who else is saying it?
 
@@ -37,11 +37,11 @@ If this Facebook commenter really cared about being fair, he would quote add "an
 
 I could stop here, but I decided to see what would happen if I actually computed the number he described i.e. the frequency that black kill police versus get killed by them, and the answer is:
 
-$$\frac{\textrm{black-on-blue-killings} \div \textrm{black male population}}{\textrm{rate of blue-on-black-shootings}} = \frac{20 \div 19,000,000}{0.0000018} = 0.58$$
+$$\frac{\textrm{black-on-blue-killings} \div \textrm{black male population}}{\textrm{blue-on-black-shootings} \div \textrm{black male population}} = \frac{20}{36} = 0.58$$
 
-Which implies that black 1.7 times _more_ likely to be killed by an officer than kill one, but again I'm not actually saying that since it really makes no sense to compare such tiny rates and such different population sizes.
+Which seems to imply that a black person is 1.7 times _more_ likely to be killed by an officer than kill one, but you can clearly see that the population divides out and we're just left dividing the number of occurrences. You might as well tell people "cops shot 13 more black people than the reverse". How is that useful?
 
-I decided to go on with the game of creating bunk statistics using these numbers. If you like, you can show that an officer is 52x more likely to kill an unarmed black male than a black person is to kill a cop. I imagine you might hear some complaints if I ever tried to use that number.
+I decided to go on with the game of creating pointless statistics using Heather's numbers. If you like, you can show that an officer is 52x more likely to kill an unarmed black male than a black person is to kill a cop. I imagine you might hear some complaints if I ever tried to use that number.
 
 The trend of people throwing big numbers unchecked around is a worrying one, and it's used to support everything from racism and xenophobia to anti-vaccination. Sometimes it really is difficult to spot - e.g. Andrew Wakefield's infamous and discredited autism/vaccination paper was debunked by other scientists - but I believe that most people on the internet today should have the capability to do what I just did. 
 
