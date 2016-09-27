@@ -4,12 +4,6 @@ title: About
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](http://jekyllrb.com/)
+You're looking at the personal website for Joseph Atkins-Turkish, a programmer on a long-standing quest to actually keep all of his projects on one website for more than a year.
 
-You can find the source code for the Jekyll new theme at:
-{% include icon-github.html username="jekyll" %} /
-[minima](https://github.com/jekyll/minima)
-
-You can find the source code for Jekyll at
-{% include icon-github.html username="jekyll" %} /
-[jekyll](https://github.com/jekyll/jekyll)
+It's fair to say that although I've been programming since I was 10, I'm fairly jack-of-all-trades so far (I only left college a year ago...). That being said, my interests are primarily game development, machine learning, web development, and any/all intersections.
