@@ -9,7 +9,7 @@ If there's one thing which really grinds my gears, it's abuse of statistics. Oh,
 
 The other day while browsing Facebook, I came across a comment posted by a friend (or acquaintance, I hope!) of a friend.
 
-> Black people are 18.5 times more likely to kilmml a police officer than to be killed by a police officer when unarmed.
+> Black people are 18.5 times more likely to kill a police officer than to be killed by a police officer when unarmed.
 
 This is obviously rubbish and ordinarily I would probably have brushed it off as "just another internet racist!" and continued, but I was intrigued by the number 18.5. Where could that have come from? He didn't make it up himself, so who else is saying it?
 
