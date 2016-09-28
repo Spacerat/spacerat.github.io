@@ -33,7 +33,7 @@ Let's plug in the numbers.
 
 $$\frac{\textrm{rate that officers are killed by non-black people}}{\textrm{rate that non-black males are shot by the police}} = \frac{(52 \times 0.60) \div (628,000)}{54 \div 134,921,800} = 124$$
 
-If this Facebook commenter really cared about being fair, he would quote add "and the number is 124x for everyone else"!
+If this Facebook commenter really cared about being fair, he would also write "and the number is 124x for everyone else"!
 
 I could stop here, but I decided to see what would happen if I actually computed the number he described i.e. the frequency that black kill police versus get killed by them, and the answer is:
 
