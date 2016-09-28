@@ -26,7 +26,7 @@ For a start, Heather was subtly misquoted. The previous descriptions make you th
 But of course the rate of cops being killed is going to be higher than the rate of civilians being killed - being a police officer is a dangerous job, and there are only 628,000 officers versus over 19 million black males! To illustrate how absurd this statistic is, we can compute the same ratio for non-black people using Heather's numbers and methods as closely as possible.
 
 1. The article implies that 60% of 52 officers were not killed by black assailants.
-2. The Washington Post's [police shooting database](https://www.washingtonpost.com/graphics/national/police-shootings/) indicates that 54 out of 90 unarmed black men killed by police were not black.
+2. The Washington Post's [police shooting database](https://www.washingtonpost.com/graphics/national/police-shootings/) indicates that 54 out of 90 unarmed men killed by police were not black.
 3. The population of men who aren't black was approximately 134,921,800.
 
 Let's plug in the numbers.
