@@ -38,5 +38,5 @@ exclude:
   - _nope*
   - README.md
   - CNAME
-  - *.sublime-project
-  - *.sh
+  - jekyll-site.sublime-project
+  - make_thumbs.sh
