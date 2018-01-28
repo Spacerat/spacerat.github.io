@@ -1,0 +1,22 @@
+@import "{{ site.theme }}";
+
+.thumbnailed {
+    max-width: 500px;
+    margin: auto;
+    color: $grey-color;
+    font-style: oblique;
+    padding-bottom: 1em;
+}
+
+.post-list > li p:after {
+    content: "..";
+}
+
+// Minima also includes a mixin for defining media queries.
+// Use media queries like this:
+// @include media-query($on-palm) {
+//     .wrapper {
+//         padding-right: $spacing-unit / 2;
+//         padding-left: $spacing-unit / 2;
+//     }
+// }

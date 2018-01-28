@@ -36,4 +36,7 @@ exclude:
   - vendor/gems/
   - vendor/ruby/
   - _nope*
-  - make_thumbs.sh
+  - README.md
+  - CNAME
+  - *.sublime-project
+  - *.sh
