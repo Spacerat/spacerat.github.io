@@ -1,3 +1,6 @@
+---
+---
+
 @import "{{ site.theme }}";
 
 .thumbnailed {
@@ -10,6 +13,28 @@
 
 .post-list > li p:after {
     content: "..";
+}
+
+.leftimg {
+    clear: both;
+    text-align: justify;
+    margin-top: 0.5em;
+    margin-bottom: 0.75em;
+}
+
+.leftimg img {
+    float: left;
+    padding-right: 1em;
+}
+
+.leftimg span {
+    padding-top: 1em;
+}
+
+.leftimg:after {
+    content: "";
+    display: table;
+    clear: both;
 }
 
 // Minima also includes a mixin for defining media queries.
