@@ -1,0 +1,10 @@
+{
+    "files.trimTrailingWhitespace": true,
+    "files.trimFinalNewlines": true,
+    "[markdown]": {
+        "editor.wordWrap": "on",
+        "editor.quickSuggestions": false,
+        "editor.fontFamily": "Helvetica"
+        "editor.fontSize": 14
+    }
+}
