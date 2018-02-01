@@ -19,45 +19,67 @@ However, we will be ignoring the player and building the computer entirely with 
 In addition to the gems above, here are some of the most important pieces:
 
 <div class="leftimg">
-<img src="/images/sapp/rock.png" alt="Rock" /> <span>Rocks fall down when there is nothing below them, and they roll off of anything which is not flat, such as other rocks. Some things can be crushed by rocks, such as sapphires, bombs, and yamyams.</span>
+<img src="/images/sapp/rock.png" alt="Rock" />
+    <span>
+        Rocks fall down when there is nothing below them, and they roll off of anything which is not flat, such as other rocks. Some things can be crushed by rocks, such as sapphires, bombs, and yamyams.
+    </span>
 </div>
 
 <div class="leftimg">
-<img src="/images/sapp/dispenser.png" alt="Dispenser" /> <span> Dispensers create a rock every N frames, where N is configurable in the level editor.</span>
+<img src="/images/sapp/dispenser.png" alt="Dispenser" />
+    <span>
+        Dispensers create a rock every N frames, where N is configurable in the level editor.
+    </span>
 </div>
 
 <div class="leftimg">
-<img src="/images/sapp/wall.png" alt="Wall" /> <span> Walls do not fall and are flat, which means that rocks, bombs and gems can rest on top of them. Walls are not destroyed by explosions from bombs or YamYams.</span>
+<img src="/images/sapp/wall.png" alt="Wall" />
+    <span>
+        Walls do not fall and are flat, which means that rocks, bombs and gems can rest on top of them. Walls are not destroyed by explosions from bombs or YamYams.
+    </span>
 </div>
 
 <div class="leftimg">
-<img src="/images/sapp/bomb.png" alt="Bomb" /> <span> Bombs can explode, destroying anything destructible in all adjacent and diagonal cells. If anything falls on them, or explodes near them, they explode. They also explode if they fall on anything, except for...</span>
+<img src="/images/sapp/bomb.png" alt="Bomb" />
+    <span>
+        Bombs can explode, destroying anything destructible in all adjacent and diagonal cells. If anything falls on them, or explodes near them, they explode. They also explode if they fall on anything, except for...
+    </span>
 </div>
 
 <div class="leftimg">
-<img src="/images/sapp/pillow.png" alt="Pillow" /> <span> .. pillows, which are soft enough to catch bombs, but are not impervious to explosions. They are not flat, so rocks and bombs roll off of them.</span>
+<img src="/images/sapp/pillow.png" alt="Pillow" />
+    <span>
+        .. pillows, which are soft enough to catch bombs, but are not impervious to explosions. They are not flat, so rocks and bombs roll off of them.
+    </span>
 </div>
 
 <div class="leftimg">
-<img src="/images/sapp/yamyam.png" alt="YamYam" /> <span> YamYams are monsters. Like bombs they explode when anything explodes near them, but their explosions can create new objects. The pattern of new objects created is configured in the level editor, and it can include new YamYams. </span>
+<img src="/images/sapp/yamyam.png" alt="YamYam" />
+    <span>
+        YamYams are monsters. Like bombs they explode when anything explodes near them, but their explosions can create new objects. The pattern of new objects created is configured in the level editor, and it can include new YamYams.
+    </span>
 </div>
 
+When an explosion happens next to a ruby, a laser is generated. Using some of the pieces above, we can create a "clock" which repeatedly fires a laser. These lasers take the role of "electricity" in our computer components.
 
-The "electricity" of our circuits is the laser. When an explosion happens next to a ruby, a laser is generated. Using some of the pieces above, we can create a "clock" which repeatedly fires a laser. 
-
-<img src="/images/sapp/clock.gif" alt="Clock component." />
+<video autoplay loop>
+  <source src="/images/sapp/clock.mp4" type="video/mp4">
+  <img src="/images/sapp/clock.gif" alt="Clock component." />
+</video>
 
 Note that the YamYam has been configured to create a new YamYam after it explodes. To the right of the ruby is "glass" - a wall which lasers can pass through. Lasers travel instantly and continue until they are stopped by an object. Bombs and YamYams explode when lasers hit them; rocks and pillows are destroyed when lasers hit them.
 
-Before we even start with the logic gates we need to be sure we can guide our lasers from one place to the next, like real wires. Sappires and emeralds can change the direction of lasers:
+Sappires and emeralds can change the direction of lasers, allowing us to route lasers between components. The following image shows that sapphires rotate the direction of lasers clockwise, emeralds rotate them anticlockwise (TNT is used to set off the explosion which powers the laser).
 
-[TODO: Image of laser/gem redirection]
+<img src="/images/sapp/emeralds.png" alt="Emeralds and sapphires reflecting a laser" />
 
-Sapphires rotate the direction of lasers clockwise, emeralds rotate them anticlockwise.
+Because YamYams can recreate themselves, they are central to every component. The most basic example is just a YamYam with rubies next to it. This is a splitter: when a laser is fired in, it fires out more.
 
-We also need to be able to connect two "wires" to one point, i.e, 'split' a laser. This is achieved simply with two rubies next to a single YamYam:
+<video autoplay loop>
+  <source src="/images/sapp/splitter.mp4" type="video/mp4">
+  <img src="/images/sapp/splitter.gif" alt="Splitter." />
+</video>
 
-[TODO: SPLITTER]
 
 ### Logic Gates and Memory
 
@@ -83,4 +105,3 @@ There are many examples of Turing complete games. [Minecraft](https://minecraft.
 Braid is a platformer video game where the player navigates a maze of levers, one-way surfaces, cannons and so on to find an objective. The paper [Braid is undecidable](https://arxiv.org/pdf/1412.0784) shows that the player in Braid can be forced to simulate a computer by continually taking the only possible path through a level. They use the phrase "undecidable" because the [halting problem](https://en.wikipedia.org/wiki/Halting_problem) shows that it is impossible to write a computer program which could take in a Braid level (which could be any arbitrary computer program) and decide whether it is possible to complete.
 
 Conway's Game of Life is a great example because it shows that complex phenomena can be constructed from very simple rules. In the game of life, cells exist on an infiniate grid. Live cells with two neighbours stay alive, cells with three neigbours become or stay alive, and with any other number of neighbours the cell dies. With these rules, Paul Randell first built a [Turing Machine](http://rendell-attic.org/gol/tm.htm) and then built a [Universal Turing Machine](http://rendell-attic.org/gol/utm/index.htm), capable of simulating his original creation - and thus - any computer.
-
