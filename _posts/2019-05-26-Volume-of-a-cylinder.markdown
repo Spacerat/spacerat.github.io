@@ -2,7 +2,7 @@
 layout: post
 title:  "I used the formula for the volume of a cylinder in real life for the first time ever and it went OK"
 date:   2019-05-26 12:23:37 -0700
-categories: maths, food
+categories: maths
 ---
 
 _Note: the bulk of this post was written in November 2018 shortly after the incident occurred, but the post is dated 2019 because I'm slow at producing blog posts_
