@@ -8,7 +8,7 @@ categories: maths
 _Note: the bulk of this post was written in November 2018 shortly after the incident occurred, but the post is dated 2019 because I'm slow at producing blog posts_
 
 
-For me, the phrase “pie dee over two squared times ell” - also known as “ell pie are squared” - evokes images of university lectures; magnetic cylindrical rods, electric charge in a piece of wire. If you need to understand those things, you need to know how much space they take up in the world. Until the situation described here, I don’t think I've ever actually needed to calculate the volume of a cylinder outside of an exam.
+For me, the phrase “pie dee over two squared aitch” (𝜋 (d½)² h) - also known as “pie are squared aitch” (𝜋r²h) - evokes images of university lectures; magnetic cylindrical rods, electric charge in a piece of wire. If you need to understand those things, you need to know how much space they take up in the world. Until the situation described here, I don’t think I've ever actually needed to calculate the volume of a cylinder outside of an exam.
 
 Recently I found myself making a pretty large quantity of apple butter. I can’t say I’m apple butter’s greatest fan, but I’ve started cooking in bulk according to precise recipes and storing it all in glass jars at room temperature a.k.a. “canning”, and apple butter is a good introductory recipe.
 
