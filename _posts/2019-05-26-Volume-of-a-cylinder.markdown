@@ -47,7 +47,7 @@ and finally I measured the diameter of the pot.
   The pot's diameter.
 </div>
 
-The two vertical measurements gave me 23 - 17 = 6cm for the depth of the purée, so I plugged in all the numbers. (25cm/2)² ⨉ 𝜋 ⨉ (23 - 17) cm = 2945cm³! Apparently I had managed to produce an almost perfectly correct volume of purée. Happy with this outcome, I followed the the recipe to the end.
+The two vertical measurements gave me 23 - 17 = 6cm for the depth of the purée, so I plugged in all the numbers. (25cm/2)² ⨉ 𝜋 ⨉ (23 - 17) cm = 2945cm³! Apparently I had managed to produce an almost perfectly correct volume of purée. Happy with this outcome, I followed the recipe to the end.
 
 <div class="thumbnailed">
   <a href="/images/cylinder/apple butter.jpg">
