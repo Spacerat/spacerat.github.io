@@ -61,7 +61,7 @@ However, in retrospect I think I was being a bit cavalier with my measurements, 
 
 If my measurements overestimated the external height and diameter and underestimated the internal height all by 0.25cm, the real volume would have been (24.75 cm / 2)² ⨉ 𝜋 ⨉ (22.75 - 17.25) cm = 2646cm³, and I would have been 12% off the recipe. In the other direction, if the real volume were (26cm/2)² ⨉ 𝜋 ⨉ (23.25 - 16.75) cm = 3505cm³ I would have been 16% over!
 
-That doesn’t seem so bad, but there was another mistake I could have made: if the tape measure was not perfectly vertical then I may actually have measured a the longest side of a triangle formed by the side of the pan, the 1.5cm metal tip of the tape measure, and the tape itself, which would have resulted in an overestimate.
+That doesn’t seem so bad, but there was another mistake I could have made: if the tape measure was not perfectly vertical then I may actually have measured the longest side of a triangle formed by the side of the pan, the 1.5cm metal tip of the tape measure, and the tape itself, which would have resulted in an overestimate.
 
 Thankfully, the [Zhoubi Suanjing](https://en.wikipedia.org/wiki/Zhoubi_Suanjing) taught us that a² + b² = c². In the worst case, if my 23cm outside pan measurement had been angled and overestimated by 0.25cm, the real height would actually be a = sqrt(22.75² - 1.5²) = 22.70 cm, and the loss of 0.05cm would bring the real volume from 2646 cm³ to 2622 cm³. Think about that 40cm³ difference as 20 little-finger-tip sized cubes, or roughly 1/6 of a 8z jar of apple butter.
 
