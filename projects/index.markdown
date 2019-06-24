@@ -11,6 +11,7 @@ You can find the code for most of these at my [github](https://github.com/Space
 
 This list only includes things which are actually running right now.
 
+*   [CollabPaint](http://paint.apps.veryjoe.com/ "CollabPaint") - Collaborate painting
 *   [Snakepong](http://js.apps.veryjoe.com/snakepong/ "Snakepong") - A game where you’re a snake that bats a ball around
 *   [Plotter](http://js.apps.veryjoe.com/plotter/ "Plotter") - A simple JS environment for plotting things
 *   [AutoDMOZ](http://autodmoz.apps.veryjoe.com/ "AutoDMOZ") - A website for categorising other websites into DMOZ categories using a linear TF-IDF model.
