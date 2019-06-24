@@ -12,13 +12,15 @@ You can find the code for most of these at my [github](https://github.com/Space
 This list only includes things which are actually running right now.
 
 *   [CollabPaint](http://paint.apps.veryjoe.com/ "CollabPaint") - Collaborate painting
-*   [Snakepong](http://js.apps.veryjoe.com/snakepong/ "Snakepong") - A game where you’re a snake that bats a ball around
-*   [Plotter](http://js.apps.veryjoe.com/plotter/ "Plotter") - A simple JS environment for plotting things
+*   [Snakepong](http://js.apps.veryjoe.com/Snakepong/ "Snakepong") - A game where you’re a snake that bats a ball around
+*   [Plotter](http://js.apps.veryjoe.com/CanvasPlotter/ "Plotter") - A simple JS environment for plotting things
 *   [AutoDMOZ](http://autodmoz.apps.veryjoe.com/ "AutoDMOZ") - A website for categorising other websites into DMOZ categories using a linear TF-IDF model.
 *   [QuickDiff](http://diff.apps.veryjoe.com/ "QuickDiff") - A client-side file differencing tool built with react.
 *   [Alcoholculator](http://alcoholculator.apps.veryjoe.com "Alcoholculator") - A tool for efficiently purchasing alcoholic beverages. (My first ReactJS project)
-*   [Automa](http://js.apps.veryjoe.com/automa/ "Automa") - Conway’s Game of Life in JS
+*   [Automa](http://js.apps.veryjoe.com/Automa/ "Automa") - Conway’s Game of Life in JS
 *   [Thumbnailer](http://thumbnailer.apps.veryjoe.com/ "Thumbnailer") - A shockingly niche little tool which downloads images from your website which are larger than the width/height tags say they should be, and then resizes them. I really can’t remember why I built this.
+
+
 
 ### Code and Maths Playgrounds
 
