@@ -1,30 +1,22 @@
 ---
 layout: post
-title:  "Configuring HTTPS for GitHub Pages and Dokku"
+title:  "Debugging HTTPS configuration for Dokku"
 date:   2019-06-29 12:23:37 -0700
 categories: tech
 ---
 
-Your connection to this website is now secure! Your favourite blog now lives at [https://veryjoe.com](https://veryjoe.com) and no where else. If you ever connected to a fake Starbucks Wifi hotspot run by a hacker and tried to visit my blog, someone could have sent you to a truckload of driveby virus downloads instead. Now that risk is gone!
+I recently decided to set up my website to use HTTPS. Configuing Github Pages - which [hosts][jekyll] this blog - was easy  . I just had to follow the Github Pages documentation on [troubleshooting custom domains] which directed me to update the `A` records in veryjoe.com's domain configuration, then [check a checkbox][GitHub Pages HTTPS].
 
-Really, I should have given more thought to HTTPS when I [set up][jekyll] this iteration of my website up in 2016, but I didn't. I just dumped my content into a [Github Pages repository] repository with all defaults intact and configured veryjoe.com to point to it, and I was rewarded with a plain old HTTP website. Between then and now I've mostly neglected this site so I didn't think much more of it.
+Dokku - which [hosts][dokku] my side project web apps - should have been just as easy. There is Dokku plugin called [dokku-letsencrypt] which lets you automatically register and configure [Let's Encrypt] SSL certificates. It promises to get you set up with just 3 commands, but I ran into two issues.
 
-But I'm here now, and the lack of security is embarrassing. In addition to the security risks, Google has [downranked HTTPS websites] since at least since 2014, and Google Chrome [started labeling][Chrome Not Secure] HTTP websites as insecure in 2018. The message is clear: to be a good citizen contributor to the web, one must use HTTPS.
+1. It fails if you have misconfigured your app's domain in Dokku.
+2. It fails if you're using an incredibly outdated version of the Dokku static site buildpack
 
-Coming back to this website recently, I set out to make things right. My website consits of two parts: veryjoe.com, the blog you're reading now; and [apps.veryjoe.com] which is the same DigitalOcean Dokku server [I set up][dokku] in 2014 to host my side projects.
+In the unlikely event that you are currently dealing with the same issues, hopefully this helps you.
 
-## Configuring HTTPS for Github Pages (veryjoe.com)
+## 1. The Dokku Domain Misconfiguration
 
-Shortly after Chrome started calling out HTTP websites, GitHub Pages [added][GitHub Pages HTTPS] HTTPS support for websites with custom domains. Their [documentation][GitHub Pages HTTPS] suggested that I should just be able to check a box (a feature apparenly [added][GitHub Pages HTTPS added] in 2018), but the box was not enabled for me. On their [troubleshooting custom domains] page I found this: 
-
-> If you're using an `A` record that points to 192.30.252.153 or 192.30.252.154, you'll need to update your DNS settings for your site to be available over HTTPS or served with a Content Delivery Network. For more information, see "HTTPS errors."
-
-This was my problem exactly. After I updated my `A` record, GitHub's checkbox's error message now informed me that I had to wait a day. I waited, then clicked the checkbox, then the change was made.
-
-## Configuring HTTPS for Dokku (apps.veryjoe.com)
-
-
-I discovered that Dokku has a [plugin][dokku-letsencrypt] which lets you automatically configure a [Let's Encrypt] certificate. I was running an ancient version of Dokku so I started by setting up a completely new Dokku instance with the latest version. Then I followed the instructions to install it but I hit a snag at `dokku letsencrypt js`:
+The first site I tried to configure was [js.apps.veryjoe.com]. Running `dokku letsencrypt js` produced following error:
 
 > ACME server returned an error: urn:acme:error:malformed :: The request message was malformed :: Error creating new authz :: Name does not end in a public suffix
 
@@ -56,13 +48,6 @@ I tried to reset the global domain configuration, but that didn't actually chang
 I figured that perhaps I just had to clear the app-specific configuration too, and I was right.
 
     root@apps:~# dokku domains:clear js
-    -----> Creating new /home/dokku/js/VHOST...
-    -----> Configuring js.apps.veryjoe.com...(using built-in template)
-    -----> Creating http nginx.conf
-    -----> Running nginx-pre-reload
-        Reloading nginx
-    -----> Cleared domains in js
-
     root@apps:~# dokku domains:report
     =====> js domains information
         Domains app enabled:           true
@@ -72,38 +57,14 @@ I figured that perhaps I just had to clear the app-specific configuration too, a
 
     root@apps:~# dokku letsencrypt js
     =====> Let's Encrypt js
-    -----> Updating letsencrypt docker image...
-    latest: Pulling from dokkupaas/letsencrypt-simp_le
-    Digest: sha256:95681f7cd659f23f451738121df9efe42ffc919e93a969781c40e936258fea72
-    Status: Image is up to date for dokkupaas/letsencrypt-simp_le:latest
-        done updating
-    -----> Enabling ACME proxy for js...
-    -----> Getting letsencrypt certificate for js...
-            - Domain 'js.apps.veryjoe.com'
-    darkhttpd/1.12, copyright (c) 2003-2016 Emil Mikulic.
-    listening on: http://0.0.0.0:80/
-    2019-06-30 01:31:24,119:INFO:__main__:1211: Generating new account key
-    2019-06-30 01:31:25,926:INFO:__main__:1305: js.apps.veryjoe.com was successfully self-verified
-    2019-06-30 01:31:26,039:INFO:__main__:1313: Generating new certificate private key
-    2019-06-30 01:31:29,941:INFO:__main__:391: Saving account_key.json
-    2019-06-30 01:31:29,942:INFO:__main__:391: Saving fullchain.pem
-    2019-06-30 01:31:29,942:INFO:__main__:391: Saving chain.pem
-    2019-06-30 01:31:29,943:INFO:__main__:391: Saving cert.pem
-    2019-06-30 01:31:29,943:INFO:__main__:391: Saving key.pem
+    ...
     -----> Certificate retrieved successfully.
-    -----> Installing let's encrypt certificates
-    -----> Configuring js.apps.veryjoe.com...(using built-in template)
-    -----> Creating https nginx.conf
-    -----> Running nginx-pre-reload
-        Reloading nginx
-    -----> Configuring js.apps.veryjoe.com...(using built-in template)
-    -----> Creating https nginx.conf
-    -----> Running nginx-pre-reload
-        Reloading nginx
-    -----> Disabling ACME proxy for js...
-        done
 
-Then I tried another application, but it failed with the following errors
+In conclusion, **Name does not end in a public suffix** is pretty self explainatory. You just need to get your domain names in order!
+
+## 2. The Outdated buildpack
+
+Next I tried [diff.apps.veryjoe.com]. The error (emphesis added):
 
 > **Unable to reach http://diff.apps.veryjoe.com/.well-known/acme-challenge/zWbBBKkpaQD-6O0NXO8FWktijAIKSpDMWI-2K9MlrVw**: HTTPSConnectionPool(host='diff.apps.veryjoe.com', port=443): Max retries exceeded with url: /.well-known/acme-challenge/zWbBBKkpaQD-6O0NXO8FWktijAIKSpDMWI-2K9MlrVw (Caused by SSLError(CertificateError(**"hostname 'diff.apps.veryjoe.com' doesn't match 'js.apps.veryjoe.com'"**,),))
 
@@ -113,15 +74,92 @@ Then I tried another application, but it failed with the following errors
 > CA marked some of the authorizations as invalid, which likely means **it could not access http://example.com/.well-known/acme-challenge/X**. Did you set correct path in -d example.com:path or --default_root? Is there a warning log entry about unsuccessful self-verification? Are all your domains accessible from the internet? Failing authorizations: https://acme-staging.api.letsencrypt.org/acme/authz/rx8o_z-L66gQgOVHjWWUoLDlIb9vOEPzTBqPvxnYkEM
 
 
+Let's Encrypt tries to access a file which the dokku-letsencrypt plugin hosts in order to prove that I own the domain, but it fails. 
+
+### Debugging the network error
+
+First I tried looking up **"dokku letsencrypt hostname doesn't match"** and found this [issue] which recommended following some instructions in the plugin's readme. They didn't work but I noticed something suspicious while I was following them:
+
+    root@apps:~# dokku proxy:ports-add diff http:80:5555
+    !     No web listeners specified for diff
+
+**No web listeners specified** suggests some kind of network configuration error. I googled around and found that [other][issue2] [resources][multiple domains] conneted nginx to issues with dokku-letsencrypt. So why was `diff` broken in this way but not `js`?
+
+Eventually I ran `dokku network:report`:
+
+    root@apps:~# dokku network:report
+    =====> alcoholculator network information
+        Network bind all interfaces:   false
+        Network listeners:
+    =====> diff network information
+        Network bind all interfaces:   false
+        Network listeners:             
+    =====> js network information
+        Network listeners:             172.17.0.4:5000
+        Network bind all interfaces:   false
+    =====> paint network information
+        Network listeners:             172.17.0.2:5000
+        Network bind all interfaces:   false
+    =====> thumbnailer network information
+        Network listeners:             172.17.0.3:5000
+        Network bind all interfaces:   false
+
+Now I had two hypotheses:
+
+1. `alcoholculator` should also break, and `paint` should succeed
+2. The thing that they have in common `diff` and `alcoholculator` is probably the buildpack.
+
+Unfortunately, I hit a snag at this point.
+
+### Avoiding Let's Encrypt rate limits
+
+Let's Encrypt only lets you try to register certificates a few times every three hours. Running `dokku letsencrypt paint`:
+    
+> There were too many requests of a given type :: Error creating new registration :: too many registrations for this IP: see <https://letsencrypt.org/docs/rate-limits/>
+
+The solution suggested by the link is to use the staging environment while you experiment.
+
+    dokku config:set --no-restart paint DOKKU_LETSENCRYPT_SERVER=staging
+    dokku config:set --no-restart alcoholculator DOKKU_LETSENCRYPT_SERVER=staging
+
+### Solving the issue
+
+At this point I was able to prove my hypothsis. Running against their staging environment, `paint` succeeded and `alcoholculator` failed. I took a look at in the repositories for `alcoholculator` and `diff` and in both I found a file called `.env` containing:
+
+    export BUILDPACK_URL=https://github.com/florianheinemann/buildpack-nginx.git
+
+As I began to search for issues related to Dokku's static site buildpack and letsencrypt, I realized that that the buildpack actually lives at <https://github.com/dokku/buildpack-nginx> now. The instructions there tell you to just put a file called `.static` in the root of your repoistory. I did that for `diff` and pushed the changes. Now it had a network listener:
+
+    root@apps:~# dokku network:report diff
+    =====> diff network information
+        Network bind all interfaces:   false
+        Network listeners:             172.17.0.6:5000
+
+And `dokku-letsencrypt diff` ran successfully against the staging environment:
+
+    root@apps:~# dokku letsencrypt diff
+    -----> Certificate retrieved successfully.
+
+I decided that it wasn't worth digging into why exactly the old version was breaking things. Sometimes things break, you update them, and then they're fixed 🤷‍♂️.
+
+After fixing `alcoholculator` in the same way, I just had to wait 3 hours for Let's Encrypt's rate limits to reset and then I was able to set everything up.
+
+
+## Conclusion
+
+Ultimately both of the problems here were of my own making: misconfiguration and outdated dependencies. The [dokku-letsencrypt] plugin is pretty great ([this tutorial] suggests that a Let's Encrypt certificate would be significantly more painful to set up without it!) but no software can completely prevent user error. With decent error messages and warnings, I was able to web-search my way to solutions. I hope you enjoy your secure connection to my [side projects]!
 
 [Let's Encrypt]: https://letsencrypt.org/
-[GitHub Pages HTTPS added]: https://github.blog/2018-05-01-github-pages-custom-domains-https/
-[Github Pages HTTPS]: https://help.github.com/en/articles/securing-your-github-pages-site-with-https
+[Github Pages HTTPS]: https://help.github.com/en/articles/securing-your-github-pages-site-with-https#enforcing-https-for-your-github-pages-site
 [troubleshooting custom domains]: https://help.github.com/en/articles/troubleshooting-custom-domains#dns-configuration-errors
-[Github Pages repository]: https://github.com/Spacerat/Spacerat.github.io
-[Chrome Not Secure]: https://security.googleblog.com/2018/02/a-secure-web-is-here-to-stay.html
-[downranked HTTPS websites]: https://webmasters.googleblog.com/2014/08/https-as-ranking-signal.html
 [dokku]: /tech/2014/02/08/Setting-up-shop.html
 [apps.veryjoe.com]: http://js.apps.veryjoe.com/
 [jekyll]: /tech/2016/09/26/first-post.html
 [dokku-letsencrypt]: https://github.com/dokku/dokku-letsencrypt
+[js.apps.veryjoe.com]: https://js.apps.veryjoe.com
+[diff.apps.veryjoe.com]: https://diff.apps.veryjoe.com
+[issue]: https://github.com/dokku/dokku-letsencrypt/issues/152
+[issue2]: https://github.com/dokku/dokku-letsencrypt/issues/145
+[multiple domains]: https://jonathanmh.com/dokku-with-multiple-domains-and-letsencrypt/
+[this tutorial]: https://medium.com/@pimterry/effortlessly-add-https-to-dokku-with-lets-encrypt-900696366890
+[side projects]: /projects
