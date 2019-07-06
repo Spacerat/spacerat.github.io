@@ -14,7 +14,7 @@ This list only includes things which are actually running right now.
 *   [CollabPaint](http://paint.apps.veryjoe.com/ "CollabPaint") - Collaborate painting
 *   [Snakepong](http://js.apps.veryjoe.com/Snakepong/ "Snakepong") - A game where you’re a snake that bats a ball around
 *   [Plotter](http://js.apps.veryjoe.com/CanvasPlotter/ "Plotter") - A simple JS environment for plotting things
-*   [AutoDMOZ](http://autodmoz.apps.veryjoe.com/ "AutoDMOZ") - A website for categorising other websites into DMOZ categories using a linear TF-IDF model.
+*   ~~[AutoDMOZ](http://autodmoz.apps.veryjoe.com/ "AutoDMOZ") - A website for categorising other websites into DMOZ categories using a linear TF-IDF model.~~ - _Currently non-functional_
 *   [QuickDiff](http://diff.apps.veryjoe.com/ "QuickDiff") - A client-side file differencing tool built with react.
 *   [Alcoholculator](http://alcoholculator.apps.veryjoe.com "Alcoholculator") - A tool for efficiently purchasing alcoholic beverages. (My first ReactJS project)
 *   [Automa](http://js.apps.veryjoe.com/Automa/ "Automa") - Conway’s Game of Life in JS
