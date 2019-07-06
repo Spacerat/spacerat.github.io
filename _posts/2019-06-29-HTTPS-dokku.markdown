@@ -1,20 +1,20 @@
 ---
 layout: post
 title:  "Debugging HTTPS configuration for Dokku"
-date:   2019-06-29 12:23:37 -0700
+date:   2019-07-06 12:11:00 -0700
 categories: tech
 ---
 
-I recently decided to set up my website to use HTTPS. Configuing Github Pages - which [hosts][jekyll] this blog - was easy  . I just had to follow the Github Pages documentation on [troubleshooting custom domains] which directed me to update the `A` records in veryjoe.com's domain configuration, then [check a checkbox][GitHub Pages HTTPS].
+I recently decided to set up my website to use HTTPS. Configuring Github Pages - which [hosts][jekyll] this blog - was easy  . I just had to follow the Github Pages documentation on [troubleshooting custom domains] which directed me to update the `A` records in veryjoe.com's domain configuration, then [check a checkbox][GitHub Pages HTTPS].
 
 Dokku - which [hosts][dokku] my side project web apps - should have been just as easy. There is Dokku plugin called [dokku-letsencrypt] which lets you automatically register and configure [Let's Encrypt] SSL certificates. It promises to get you set up with just 3 commands, but I ran into two issues.
 
-1. It fails if you have misconfigured your app's domain in Dokku.
-2. It fails if you're using an incredibly outdated version of the Dokku static site buildpack
+1. It fails if you've misconfigured your app's domain in Dokku.
+2. It fails if your apps have no network listeners.
 
-In the unlikely event that you are currently dealing with the same issues, hopefully this helps you.
+I'm not going to dig into the precise causes of these errors in this post, since I didn't do that in real life. But in the unlikely event that you are currently dealing with the same issues, hopefully this helps you debug.
 
-## 1. The Dokku Domain Misconfiguration
+## 1. Dokku domain misconfiguration
 
 The first site I tried to configure was [js.apps.veryjoe.com]. Running `dokku letsencrypt js` produced following error:
 
@@ -60,11 +60,11 @@ I figured that perhaps I just had to clear the app-specific configuration too, a
     ...
     -----> Certificate retrieved successfully.
 
-In conclusion, **Name does not end in a public suffix** is pretty self explainatory. You just need to get your domain names in order!
+In conclusion, **Name does not end in a public suffix** is pretty self explanatory. You just need to get your domain names in order!
 
-## 2. The Outdated buildpack
+## 2. missing network listeners
 
-Next I tried [diff.apps.veryjoe.com]. The error (emphesis added):
+Next I tried [diff.apps.veryjoe.com]. The error follows (emphasis added):
 
 > **Unable to reach http://diff.apps.veryjoe.com/.well-known/acme-challenge/zWbBBKkpaQD-6O0NXO8FWktijAIKSpDMWI-2K9MlrVw**: HTTPSConnectionPool(host='diff.apps.veryjoe.com', port=443): Max retries exceeded with url: /.well-known/acme-challenge/zWbBBKkpaQD-6O0NXO8FWktijAIKSpDMWI-2K9MlrVw (Caused by SSLError(CertificateError(**"hostname 'diff.apps.veryjoe.com' doesn't match 'js.apps.veryjoe.com'"**,),))
 
@@ -74,7 +74,7 @@ Next I tried [diff.apps.veryjoe.com]. The error (emphesis added):
 > CA marked some of the authorizations as invalid, which likely means **it could not access http://example.com/.well-known/acme-challenge/X**. Did you set correct path in -d example.com:path or --default_root? Is there a warning log entry about unsuccessful self-verification? Are all your domains accessible from the internet? Failing authorizations: https://acme-staging.api.letsencrypt.org/acme/authz/rx8o_z-L66gQgOVHjWWUoLDlIb9vOEPzTBqPvxnYkEM
 
 
-Let's Encrypt tries to access a file which the dokku-letsencrypt plugin hosts in order to prove that I own the domain, but it fails. 
+Let's Encrypt tries to access a file which the dokku-letsencrypt plugin hosts in order to prove that I own the domain, but it can't find it. 
 
 ### Debugging the network error
 
@@ -83,7 +83,7 @@ First I tried looking up **"dokku letsencrypt hostname doesn't match"** and foun
     root@apps:~# dokku proxy:ports-add diff http:80:5555
     !     No web listeners specified for diff
 
-**No web listeners specified** suggests some kind of network configuration error. I googled around and found that [other][issue2] [resources][multiple domains] conneted nginx to issues with dokku-letsencrypt. So why was `diff` broken in this way but not `js`?
+**No web listeners specified** suggests some kind of network configuration error. I googled around and found a [github issue][issue2] and [a tutorial][multiple domains] which connected nginx to issues with dokku-letsencrypt. So why was `diff` broken in this way but not `js`?
 
 Eventually I ran `dokku network:report`:
 
@@ -104,10 +104,7 @@ Eventually I ran `dokku network:report`:
         Network listeners:             172.17.0.3:5000
         Network bind all interfaces:   false
 
-Now I had two hypotheses:
-
-1. `alcoholculator` should also break, and `paint` should succeed
-2. The thing that they have in common `diff` and `alcoholculator` is probably the buildpack.
+Now I had a hypothesis: `alcoholculator` should also break, and `paint` should succeed.
 
 Unfortunately, I hit a snag at this point.
 
@@ -124,11 +121,13 @@ The solution suggested by the link is to use the staging environment while you e
 
 ### Solving the issue
 
-At this point I was able to prove my hypothsis. Running against their staging environment, `paint` succeeded and `alcoholculator` failed. I took a look at in the repositories for `alcoholculator` and `diff` and in both I found a file called `.env` containing:
+At this point I was able to prove my hypothesis. Running against their staging environment, `paint` successfully registered for a certificate, and `alcoholculator` encountered the same error as `diff`.
+
+The `diff` and `alcoholculator` apps are both static Javascript sites, so I figured that the root cause could lie in their buildpack. I inspected their repositories and in both I found a file called `.env` containing:
 
     export BUILDPACK_URL=https://github.com/florianheinemann/buildpack-nginx.git
 
-As I began to search for issues related to Dokku's static site buildpack and letsencrypt, I realized that that the buildpack actually lives at <https://github.com/dokku/buildpack-nginx> now. The instructions there tell you to just put a file called `.static` in the root of your repoistory. I did that for `diff` and pushed the changes. Now it had a network listener:
+As I began to search for issues related to Dokku's static site buildpack and letsencrypt, I realized that that the latest version of the buildpack actually lives at <https://github.com/dokku/buildpack-nginx> now. The instructions there tell you to just put a file called `.static` in the root of your repository. I did that for `diff` and pushed the changes. Now it had a network listener:
 
     root@apps:~# dokku network:report diff
     =====> diff network information
