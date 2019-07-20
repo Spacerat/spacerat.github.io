@@ -10,9 +10,6 @@ Pimorize is an app I made which helps you memorize numbers (e.g. pi), by having 
 	<div>3.14159!</div>
 </div>
 
-
-Quadris is a clone of Katharine Berry’s [Bitris](https://github.com/Katharine/Bitris), which is in turn an adaption of [Tringo](http://en.wikipedia.org/wiki/Tringo) from Second Life. It was written using BlitzMax in 2010.
-
 Links:
 
 ~~[Pimorize for OS X](/downloads/PimorizeOSX.zip)~~ Doesn't currently run on latests OS.
