@@ -1,29 +1,30 @@
 ---
 layout: post
-title:  "Following Chapter 1 of Internals of PostgreSQL "
+title:  "Poking around Postgres files"
 date:   2019-04-24 12:23:37 -0700
 categories: databases
 ---
 
-In this post I will document my efforts to read and understand [Chapter 1] (_Database Cluster, Databases, and Tables_) of the [Internals of PostgreSQL] e-book, and summarize the things I learn.
+This post documents my efforts to learn about some of the basics of the Postgres file format from [Chapter 1] (_Database Cluster, Databases, and Tables_) of the [Internals of PostgreSQL] e-book.
 
-Before starting to read this book, I installed [postgres.app] on my Mac and created at database called `joe`. I this post, I follow along by using the Postgres server to test the things I've learned myself.
+Before starting to read this book, I installed [postgres.app] on my Mac and created at database called `joe`. In this post, I follow along by using the Postgres server to test the things I've learned myself.
 
-### It's just files on disk
+### It's just files on a disk
 
 This chapter essentially de-mystifies Postgres's file-structure. All of Postgres's tables are stored on disk.
-The MacOS Postgres application conveniently reports its own data directory in the user interface:
+
+The MacOS Postgres application conveniently reports the location of its own data directory in the user interface:
 
     $ cd "/Users/joe/Library/Application Support/Postgres/var-10"
 
-I created my own table and put some data in it.
+I created a table and put some data in it.
 
     joe=# CREATE TABLE foo (number integer, name text, flag boolean);
     joe=# INSERT INTO foo VALUES (1, 'meep', true);
     joe=# INSERT INTO foo VALUES (2, 'moop', false);
     joe=# INSERT INTO foo VALUES (null, null, null);
 
-Postgres maintains metadata tables which catalog every object you create which can be used, for example, to locate your tables on disk.
+Postgres maintains metadata tables which catalog every object you create, which can be used to locate your tables on disk.
 For example, the [`pg_databases`] table catalogs databases and [`pg_class`] catalogs "tables and most everything else that has columns or is otherwise similar to a table".
 
     joe=# SELECT datname, oid FROM pg_database;
@@ -61,7 +62,7 @@ The file was empty! And yet the table definitely contains data:
           |       | 
 
 The chapter doesn't explain this, but I figured that PostgreSQL must be storing the data in memory and delaying the write to disk
-until necessary. I restarted my Postgres server to test the theory, and it was correct.
+until necessary. I restarted my Postgres server and saw that it had written the data out:
 
     $ cat ./base/16385/24576
 
@@ -109,6 +110,14 @@ to that of the hex dump display's 'line number', so:
 
 - `00 24` is 36 in decimal. 36 bytes in, a long series of 0s begins.
 - `90 1f` actually corresponds to line `00001f90` in the hex dump, where non-zero values reappear, and `moop` eventually shows up.
+
+### Takeaways
+
+_TODO_
+
+- Something about maximum theoretical read speed and overhead of postgres when transferring data
+- Something about calculation of actual quantity of data from `relpages`
+- Something about larger overhead from smaller tables
 
 
 [Internals of PostgreSQL]: http://www.interdb.jp/pg/index.html
