@@ -9,18 +9,25 @@ You can find the code for most of these at my [github](https://github.com/Space
 
 ### Web projects
 
+
+#### Tools
+
+*   [QuickDiff](https://veryjoe.com/diff-site "QuickDiff") - A file differencing tool built with React.
+*   [Plotter](https://veryjoe.com/CanvasPlotter/ "Plotter") - A simple Javascript environment for plotting things.
+*   [Thumbnailer](https://thumbnailer.apps.veryjoe.com/ "Thumbnailer") - A shockingly niche little tool which downloads images from your website which are larger than the width/height tags say they should be, and then resizes them. I really can’t remember why I built this.
+*   [Alcoholculator](https://veryjoe.com/Alcoholculator "Alcoholculator") - A tool for efficiently purchasing alcoholic beverages. (My first ReactJS project).
+
+
+#### Games
+
 *   [CollabPaint](https://paint.apps.veryjoe.com/ "CollabPaint") - Paint with friends in real-time.
 *   [Snakepong](https://veryjoe.com/Snakepong/ "Snakepong") - It's like pong but your paddle is a snake. Play against a friend on one keyboard, or against the AI.
-*   [Plotter](https://veryjoe.com/CanvasPlotter/ "Plotter") - A simple Javascript environment for plotting things.
-*   [QuickDiff](https://veryjoe.com/diff-site "QuickDiff") - A file differencing tool built with React.
-*   [Alcoholculator](https://veryjoe.com/Alcoholculator "Alcoholculator") - A tool for efficiently purchasing alcoholic beverages. (My first ReactJS project).
 *   [Automa](https://veryjoe.com/Automa/ "Automa") - Conway’s Game of Life in Javascript.
 *   [Meteors](https://veryjoe.com/Meteors/ "Meteors") - A not-really-finished game where you bounce meteors into each other.
-*   [Thumbnailer](https://thumbnailer.apps.veryjoe.com/ "Thumbnailer") - A shockingly niche little tool which downloads images from your website which are larger than the width/height tags say they should be, and then resizes them. I really can’t remember why I built this.
-*   ~~[AutoDMOZ](https://autodmoz.apps.veryjoe.com/ "AutoDMOZ") - A website for categorising other websites into DMOZ categories using a linear TF-IDF model.~~ - _Currently non-functional_.
 
 
-### Code and Maths Playgrounds
+
+### Notebooks
 
 *   [Algorithms](https://github.com/Spacerat/Algorithms "Algorithms") - I got bored one day and wrote some Python implementations of linked lists, heaps, hashmaps and A* search.
 *   [Jupyter Notebooks](https://github.com/Spacerat/Jupyter-Notebooks "Jupyter Notebooks") - A collection of personal and academic notes on maths, statistics and machine learning.
