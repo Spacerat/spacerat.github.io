@@ -81,7 +81,7 @@ Finally you `cdk deploy` and it works. You took 5 hours to successfully automate
 ## A better way
 
 The `AwsCustomResource` class seems like it's almost a winner when all you need to do is make AWS API calls, but I did not go
-through all of the above described effort just to live in a world where I discover configuration typos _deploy time_, so I
+through all of the above described effort just to live in a world where I discover configuration typos at _deploy time_, so I
 made a library called [checked-aws-custom-resource] which consists of a single resource which just wraps `AwsCustomResource`
 and checks at compile time whether all specified actions exist. It's really pretty simple, but now I feel like I'll be able
 to use the CDK to poke AWS APIs without fear.
