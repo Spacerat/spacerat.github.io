@@ -105,7 +105,7 @@ new CheckedAwsCustomResource(this, "ToggleDataAPI", {
 });
 ```
 
-its implementation is little more than to subclass `AwsCustomResource` and add this to the `constructor`:
+its implementation is little more than to subclass `AwsCustomResource` and add this to the constructor:
 
 ```ts
 if (typeof awsService[call.action] !== "function") {
