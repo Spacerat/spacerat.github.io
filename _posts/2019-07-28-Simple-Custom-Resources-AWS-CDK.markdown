@@ -125,9 +125,9 @@ Overall, I have come away from this experience with a few thoughts:
 
 1. CloudFormation (and AWS as a whole, really) is a minefield of gotchas,
 2. If there are some simply documented basic best practices for CDK/CloudFormation/Infra-As-Code development out there, I would love to know more,
-3. The CDK smooths over many of the edges, but also introduces a few.
+3. The CDK smooths over many of CloudFormation's edges, but also introduces a few.
 
-To be fair to the CDK, it's mostly be a joy to use, and it's still experimental, but ultimately, **every
+To be fair to the CDK, it's mostly been a joy to use, and it's still experimental, but ultimately, **every
 new layer of complexity creates an opportunity for bugs to hide and abstractions to leak.**
 
 For example, take this [snippet] from the source code of `custom-resources`:
