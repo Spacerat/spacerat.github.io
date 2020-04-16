@@ -1,46 +1,58 @@
 ---
 layout: post
-title: "How To Measure Anything - including The Information Values for Multiple Variables"
+title: "How To Measure Anything: The Information Values for Multiple Variables"
 date: 2020-03-14 12:23:37 -0700
 categories: tech
 ---
 
-## Intro [WIP]
+The book [How To Measure Anything] (by Douglas W. Hubbard) teaches a process for quantitative decision making. I highly recommend giving it a read, but here's the overall approach it suggests:
 
-Warning: this blog post more clear if you've read the book
+---
+<br>
 
-- How To Measure Anything is great
-- It suggests measuring the Information Value of variables in a decision model, so that you know where it's worth spending money on refining estimates.
-- It gives a great example for a model with one variable...
-- but it admits that most models are multi-variate...
-- and then steadfastly avoids providing good examples for the multi-variate case!
-- I'm going to run through an example.
+1. Define and model a decision. A decision must have a measurable impact, e.g. company profits, which is modeled with a collection of variables. For example, decide to sell a product if $$ \textrm{Unit Profit} * \textrm{Buyers} - \textrm{Fixed cost} > 0$$
+
+2. Estimate distributions for each variable using existing knowledge. Ideally, this should be done by experts in the area who have undergone [calibration training]
+
+3. Compute the value of obtaining more accurate estimates for each variable.
+
+4. Reduce uncertainty by measuring the highest-value variables, or by decomposing them into finer grained estimates.
+
+5. Make a decision once uncertainty has been sufficiently reduced.
+
+---
+<br>
+I believe the cornerstone of this approach is step 3, but how exactly do you compute the value of measuring a variable?
+
+The book describes the theory in detail, with some nice examples... for a model with a single variable. It then acknowledges that most models will consist of many variables, and dedicates a mere _two short paragraphs_ to the multi-variate case!
+
+This blog post fills in the gap with a working example. I define a model, then compute the value of obtaining perfect information for each of its variables using the more accurate method suggested by the book.
 
 
 ## The advertising campaign
 
-**TODO:** flesh out.
+The model we'll use is similar to the simple model used in Chapter 6, but with a second variable included.
 
-There is a proposal for an ad campaign which will will cost \$5m to run. If the campaign is rejected, no money is made or spent. If the campaign is accepted, it will run for two market segments, and we may succeed or fail in each segment independently.
+There is a proposal for an ad campaign which will will cost \$5m to run. If the campaign is rejected, no money will be made or spent. If the campaign is accepted, it will run in two market segments, and may succeed or fail in each segment independently.
 
-In this unrealistic example, we know exactly how much we'll make, but our experts have estimated their chance of success.
+In this unrealistic example, we know exactly how much we'll make if we succeed, but our experts have estimated the chance of success in each segment.
 
-|           | Chance of success | Revenue if successful |
-|-----------|-------------------|-----------------------|
-| Segment A | 60%               | $45m                  |
-| Segment B | 90%               | $2m                   |
+|           | Chance of success | Revenue if successful | Revenue if unsuccessful |
+|-----------|-------------------|-----------------------|-------------------------|
+| Segment A | 60%               | $45m                  | $0                      |
+| Segment B | 90%               | $2m                   | $0                      |
 
-- **WIP** Objective: figure out which market segment to measure. Spoiler, it's obviously B, but if we can prove that with math, we can apply the technique to harder problems.
+We could run surveys to improve our confidence in the outcomes, but which market segment should we do that for, and how much should we spend?
+
+Intuition should rightly tell you that A is worth more to measure than B, but the hope is that if we can demonstrate Hubbard's technique on this simple example, you can generalize it to situations where the outcome is less clear.
 
 ## The value of perfect information
 
-**TODO - introduce the following quote. Maybe cut it down**
-
-<!-- > Another more elaborate -- but more accurate -- method starts by running a simulation that shows our expected loss at our current level of uncertainty. I call this the Overall EOL or the Decision EOL. This is simply the average of all outcomes given our current (default) decision assuming we don't measure any further. If, at our current level of uncertainty, our default decision was to reject an investment, but it turns out it would have been a good idea, then the amount we would have made is the opporunity loss in that scenario. In scenarious where our decision turned out to be correct, our opportunity loss was zero. All of these results averaged together -- zeros and non-zero values alike -- is the Overall EOL. -->
+The method starts by computing what it calls the "Overall Expected Opportunity Loss" for the model.
 
 > Another more elaborate -- but more accurate -- method starts by running a simulation that shows our expected loss at our current level of uncertainty. I call this the Overall EOL or the Decision EOL. This is simply the average of all outcomes given our current (default) decision assuming we don't measure any further. [...] All of these results averaged together -- zeros and non-zero values alike -- is the Overall EOL.
 
-The book defines Opportunity Loss (OL) as the cost of a bad decision, which could be as much as $5m for this campaign if it completely fails. It goes on to define Expected Opportunity Loss (EOL) as the cost of a bad decision multiplied by its probability.
+Opportunity Loss (OL) is defined as the cost of a bad decision, which could be as much as $5m for this campaign if it completely fails. Expected Opportunity Loss (EOL) is the cost of a bad decision multiplied by its probability.
 
 If the campaign is run, we risk losing money if we don't make as much as the $5m we paid for it.
 
@@ -58,9 +70,10 @@ $$\begin{eqnarray}
                          &=& $1.28m
 \end{eqnarray}$$
 
-If the campaign is not run, we can never make any profit, so we risk losing out out on everything we would have made.[^eolname]
+Ignoring how much we stand to _make_, running this campaign involves a 4% risk of a $5m loss, and a 36% risk of a $3m loss. Multiplied together, the expected loss is $1.28m.
 
-**WIP - Note that this calculation is equivalent to a monte-carlo simulation which computes the Overall EOL** 
+We can make a similar calculation for the case where the campaign is not run. Here, the risk is that we lose out out on everything we would have made.[^eolname]
+
 
 | A result   | B result   | Profit | Probability | Opportunity Loss<br>(loss if campaign is rejected)
 |------------|------------|--------|-------------|------------------
@@ -75,11 +88,17 @@ $$\begin{eqnarray}
                          &=& $25.08m
 \end{eqnarray}$$
 
-Based on what we know, we should probably decide to run the campaign, because we expect to lose more if we don't than if we do. But just to be safe, shouldn't we spend a bit on a survey to refine our estimate of the chance of failure?
+Based on what we know, should we decide to run the campaign? That depends on our risk tolerance - if we don't have $5m to lose, we might be more sensitive to actual losses than missed profits.
 
-Let's imagine we can buy *perfect information*. We'd definitely do it for $1, and definitely not for $100m. In which case, what's the maximum we should pay? The theory goes that given our current level of uncertainty, we would pay up to $1.28m to confirm that the campaign won't fail. Despite the fact that we might lose up to $5m, any more than $1.28m and we're paying more than the expected value of our loss.
+However, let's keep things simple and say that we'll take whichever option has the lowest risk. This policy is our **decision rule**. It results in a "default" decision to run the campaign, and means that our Overall EOL is currently $1.28m
 
-Conversely, if our default option was to reject the campaign, we're throwing away an 'expected' $25.08m, so that's how much we should spend for perfect information on whether it will succeed. If we pay more, we will end up having paid more for the information than we expect to gain.
+But just to be safe, shouldn't we spend a bit on a survey to refine our estimate of the chance of failure?
+
+Let's imagine we can buy *perfect information*. We'd definitely do it for $1, and definitely not for $100m. In which case, what's the maximum we should pay? The theory goes that given our current level of uncertainty, we would pay up to $1.28m to confirm that the campaign won't fail. Despite the fact that we might lose up to $5m, any more than $1.28m and we're paying more than our expected loss.
+
+Conversely, if our default option was to reject the campaign, we're throwing away an 'expected' $25.08m, so it would probably be worth spending a lot more to make sure we're not missing out. However, if we pay more than $25.08m, we're paying more than we expect to gain.
+
+This is what the book calls the Expected Value of Perfect Information (EVPI). We've calculated it for the entire model, but what if we can get perfect information for just one variable?
 
 ## The value of information for a single variable
 
@@ -99,11 +118,13 @@ $$\begin{eqnarray}
 \textrm{EOL if Rejected} &=& $0 &*& 90\% &+& $0 &*& 10\% &=& $0
 \end{eqnarray}$$
 
+Note that 100 random simulations (i.e. Monte Carlo) would have produced roughly the same result. B would have succeeded in approximately 90 simulations and failed in 10. $$ (90 * 3m + 10*5m) \div 100 = 3.2m $$.
+
 > We apply a decision rule that tells the model what I would have done differently if I knew only that variable exactly. If knowing this variable was informative, my opportunity losses from making a bad decision (the Overall EOL) should go down.
 
-Armed with this information just about segment A, we would definitely change our decision to reject the campaign proposal, reducing our expected opportunity loss from $1.28m to $0.
+Armed with this information just about segment A, our decision rule from earlier (choose the option with the lowest EOL) tells us to reject the campaign proposal, reducing our Expected Opportunity Loss from $1.28m to $0.
 
-We can try the same thing for the case that we learn that segment A is 100% likely to succeed. Noting that this actually reduces the situation to a single variable, we can simplify the table a bit.
+We can try the same thing for the case that we learn that segment A is 100% likely to succeed. Noting that this reduces the situation to a single variable, we can simplify the table a bit.
 
 | B result   | Profit | Probability | Opportunity Loss (Accepted) | Opportunity Loss (Rejected) |
 |------------|--------|-------------|-----------------------------|-----------------------------|
@@ -116,9 +137,9 @@ $$\begin{eqnarray}
 \textrm{EOL if Rejected} &=& $42m * 90\% + $40m * 10\% = $41.8m
 \end{eqnarray}$$
 
-If we're certain to succeed in segment A then we should definitely run the campaign, because we'll always cover the potential loss of segment B. This too was a very informative piece of information.
+Again, perfect information reduced our risk to $0, and our decision rule tells us to definitely run the campaign, because segment A's success will always cover the potential loss of segment B. Overall, it looks like the expected value of perfect information on segment A is $1.28m.
 
-Finally, let's consider perfect information about segment B, starting with its failure.
+Now let's consider perfect information about segment B. Suppose we learn that it will fail.
 
 | A result   | Profit | Probability | Opportunity Loss (Accepted) | Opportunity Loss (Rejected) |
 |------------|--------|-------------|-----------------------------|-----------------------------|
@@ -130,7 +151,9 @@ $$\begin{eqnarray}
 \textrm{EOL if Rejected} &=& $40m &*& 60\% &=& $24m
 \end{eqnarray}$$
 
-This doesn't actually change our decision. The campaign is looking a little more risky, but it still looks like a good bet. Here's the final case:
+The campaign looks $720,000 more risky, but that doesn't change our decision to run it.
+
+What if we learn that it succeeds?
 
 | A result   | Profit | Probability | Opportunity Loss (Accepted) | Opportunity Loss (Rejected) |
 |------------|--------|-------------|-----------------------------|-----------------------------|
@@ -142,7 +165,11 @@ $$\begin{eqnarray}
 \textrm{EOL if Rejected} &=& $40m &*& 60\% &=& $25.2m
 \end{eqnarray}$$
 
-If we learn with full confidence that B will succeed, our Expected Opportunity Loss is reduced by $80,000. We wouldn't change our decision, but we might pay up to $80,000 for perfect information on B.
+Now the Expected Opportunity Loss of our decision to run the campaign is reduced by $80,000.
+
+> The change in Overall EOL by eliminating uncertainty for a single variable is the "Individual EVPI" for that variable. 
+
+Here is where my interpretation of the book is fuzzy. It seems clear that we should pay up to $1.28m for perfect information on Segment A, but since information on Segment B can never change our decision, would we pay even one dollar to learn more about it?
 
 ## Knowing what to measure
 
@@ -187,3 +214,6 @@ The concept of paying **[WIP finish this sentence]**, and ultimately it's a pret
 ### Uncalibrated estimates
 
 **TODO** something about how the model falls apart if you begin with uncalibrated estimates.
+
+[How To Measure Anything]: https://www.howtomeasureanything.com/3rd-edition/
+[calibration training]: https://en.wikipedia.org/wiki/Calibrated_probability_assessment
