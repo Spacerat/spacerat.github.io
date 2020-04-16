@@ -3,6 +3,7 @@ layout: post
 title: "How To Measure Anything: The Information Values for Multiple Variables"
 date: 2020-03-14 12:23:37 -0700
 categories: tech
+tags: hide
 ---
 
 The book [How To Measure Anything] (by Douglas W. Hubbard) teaches a process for quantitative decision making. I highly recommend giving it a read, but here's the overall approach it suggests:

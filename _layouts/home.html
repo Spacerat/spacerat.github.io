@@ -10,6 +10,9 @@ layout: default
   <h1 class="page-heading">Here's some stuff I wrote:</h1>
   <ul class="post-list">
     {% for post in site.posts %}
+      {% if post.tags contains 'hide'  %}
+
+      {% else %}
       <li>
         <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
 
@@ -18,6 +21,7 @@ layout: default
         </h2>
         {{ post.excerpt}}
       </li>
+      {% endif %}
     {% endfor %}
   </ul>
 
