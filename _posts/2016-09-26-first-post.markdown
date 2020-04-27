@@ -12,7 +12,7 @@ So I'm trying out Jekyll!
 {% highlight python %}
 # Also:
 def apparently_it_has(nice):
-  print("code highlighting %s", "Built in!")
+  print("code highlighting %s" % "Built in!")
 {% endhighlight %}
 
 So far I'm pretty happy with it, although it took a little effort to set up. My primary stumbling block was themes not working, but it turns out that if you have 
