@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Estimation of normal distribution parameters from percentiles in, Python"
+title:  "Estimation of normal distribution parameters from percentiles, in Python"
 date:   2020-04-26 20:15:00 -0700
 categories: maths
 ---
