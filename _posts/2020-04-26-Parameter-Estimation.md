@@ -23,7 +23,7 @@ This post simply demonstrates some Python code examples for deriving normal and 
 
 If you're interested in understanding the maths behind this and learning about other distributions, I encourage you to check out the paper. You can also read [this blog post](https://www.johndcook.com/blog/2010/01/31/parameters-from-percentiles/), which links to [this](https://www.codeproject.com/Articles/56371/Finding-Probability-Distribution-Parameters-from-P) Python code for Gamma and Beta distributions.
 
-## Notebook setup
+## Notebook setup
 
 First we just import some libraries and set up some plotting functions.
 
