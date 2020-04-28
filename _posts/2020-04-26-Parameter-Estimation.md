@@ -56,7 +56,7 @@ def show_percentiles(ax, dist, low, high):
     ax.fill_between(xs2, dist.pdf(xs2))
 ```
 
-If we estimate that 5\% of customers spend under \\$10, and 95\% spend under \\$90, then we can write that as
+If we estimate that 5% of customers spend under $10, and 95% spend under $90, then we can write that as
 
 $$
 \begin{align}
@@ -106,11 +106,11 @@ def norm_from_percentiles(x1, p1, x2, p2):
     return norm(loc=location, scale=scale)
 ```
 
-In the examples below, I've produced two normal distributions using perentile estimates.
+In the examples below, I've produced two normal distributions using percentile estimates.
 
 The `show_percentiles` function - which fills in the top and bottom percentiles - demonstrates that `norm_from_percentiles` works as intended. Given only the percentiles, it fills in charts in at the expected `x` locations.
 
-Note that the second example demonstrates that you the percentiles don't need to equal distances from 0 and 100%. You can parametrize using any two percentiles!
+The second example demonstrates that the percentiles don't need to be centered. You can parametrize using any two percentiles!
 
 
 ```python

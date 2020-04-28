@@ -1,3 +1,4 @@
+#! /usr/bin/env bash
 # Convert all notebooks to markdown files
 jupyter nbconvert _notebooks/*.ipynb --to markdown
 
@@ -6,6 +7,9 @@ sed -i '' 's/!\[png\](/![png](\/images\/notebooks\//' _notebooks/*.md
 
 # Remove weird unicode spaces
 sed -i '' 's/ / /' _notebooks/*.md
+
+# Fix dollar symbols
+sed -i '' 's/\\\\\$/$/g' _notebooks/*.md
 
 # Move markdown files and rendered images to appropriate folders
 mv _notebooks/*.md _posts/
