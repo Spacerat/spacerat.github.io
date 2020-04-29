@@ -1,8 +1,9 @@
 ---
-layout: post
+layout: notebook
 title:  "Estimation of normal distribution parameters from percentiles, in Python"
 date:   2020-04-26 20:15:00 -0700
 categories: maths
+notebook: https://github.com/Spacerat/Spacerat.github.io/blob/master/_notebooks/2020-04-26-Parameter-Estimation.ipynb
 ---
 Let's say you're going to do some business modeling for a friend who's thinking of opening a flower shop, producing something like [this](https://www.getguesstimate.com/models/3206) at the end. If you ask your friend the following question...
 
@@ -14,7 +15,7 @@ You're likely to be given a blank stare in response. You're more likely to find 
 
 Estimation is difficult, but if you're doing it at all, thinking about it in terms of percentiles tends to be an intuitive approach.
 
-Unfortunately, statistical software doesn't work this way. Distributions are parametrized in terms of means, standard deviations, shape parameters, and so on. So, how do we go from "90% of customers spend between $10 and $90" to a probability distribution in software? 
+Unfortunately, statistical software doesn't work this way. Distributions are parametrized in terms of means, standard deviations, shape parameters, and so on. So, how do we go from "90\% of customers spend between $10 and $90" to a probability distribution in software? 
 
 1. Find a [paper](https://www.johndcook.com/quantiles_parameters.pdf) titled _Determining distribution parameters from quantiles_
 2. Implement it in Python!
@@ -56,7 +57,7 @@ def show_percentiles(ax, dist, low, high):
     ax.fill_between(xs2, dist.pdf(xs2))
 ```
 
-If we estimate that 5% of customers spend under $10, and 95% spend under $90, then we can write that as
+If we estimate that 5\% of customers spend under $10, and 95\% spend under $90, then we can write that as
 
 $$
 \begin{align}
