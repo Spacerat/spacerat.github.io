@@ -27,7 +27,7 @@ Jump to:
 
 ## The dice game
 
-I offer to play a game with as many times as you'd like. I'll roll a dice, and if it lands on 1 or 2, you lose $900. If it lands on 3, 4, 5 or 6, you win $60. Even though you're more likely to win than lose, the cost of losing is so great that your losses will far outstrip your winnings after a few games.
+I offer to play the following game as many times as you'd like. I'll roll a dice, and if it lands on 1 or 2, you lose $900. If it lands on 3, 4, 5 or 6, you win $60. Even though you're more likely to win than lose, the cost of losing is so great that your losses will far outstrip your winnings after a few games.
 
 We can calculate the **[Expected Value]** of this game - how much you make or lose on average with each play - by multiplying the value of each outcome with its probability, and adding the results.
 
@@ -199,7 +199,7 @@ This suggests two categories of imperfect information: potentially useless infor
 
 In summary, the situations examined in this post suggest two guiding principles for valuing information.
 
-Firstly, **the most you should pay for information is the amount you expect to lose if your default decision is wrong.**. This is because the most you'll pay for information is whatever you would pay for perfect information, and perfect information cannot cause you to change to a bad decision.
+Firstly, **the most you should pay for information is the amount you expect to lose if your default decision is wrong**. This is because the most you'll pay for information is whatever you would pay for perfect information, and perfect information cannot cause you to change to a bad decision.
 
 Secondly, **strive to collect information which is not _potentially misleading_**. When the worst case is that information is useless, you don't have to consider the cost of switching to a bad decision, but when information can mislead you, then you must take into account the cost of being persuaded to make a bad decision.
 
