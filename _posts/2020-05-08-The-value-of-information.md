@@ -11,7 +11,7 @@ Imagine that I run a business, and I'm thinking of launching a new product. I th
 
 If I'm going to spend $100,000 developing and selling the product, that's the max I stand to lose, but if I'm already fairly certain it will succeed, wouldn't it be excessive to spend $100,000 on research?
 
-This post builds on top ideas in the book [How To Measure Anything] by Douglas W. Hubbard, which I highly recommend. In the book, valuing information is a key part of a larger decision-making framework, but as I read it, I found myself wanting more mathematical justification for some of the statements and ideas.
+This post builds upon ideas in the book [How To Measure Anything] by Douglas W. Hubbard, which I highly recommend. In the book, valuing information is a key part of a larger decision-making framework, but as I read it, I found myself wanting more mathematical justification for some of the statements and ideas.
 
 This post fills in the gaps, by examining the question of how much one should pay for information using a simple gambling game under the lens of maths and probability. We'll start by figuring out how much you should pay for perfect information on the outcome of the game, then move on to imperfect information, which might be unreliable or even misleading. Finally, we'll come away with some rules of thumb for thinking about the value of information.
 
