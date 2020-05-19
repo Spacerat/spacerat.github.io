@@ -3,7 +3,7 @@ layout: page
 title: Projects
 nav: yes
 ---
-This is a partial list of little personal projects I have worked on. **These project are mostly very old**, and many of them are fairly unpolished, since often the purpose of my projects has simply been to experiment with some new idea, programming tool or framework.
+This is a partial list of personal projects I have worked on. **These projects are mostly very old**, and many of them are fairly unpolished, since often the purpose of my projects has simply been to experiment with some new idea, programming tool or framework.
 
 You can find the code for most of these at my [github](https://github.com/Spacerat) page, which is also home to many more projects in various states of disrepair.
 
@@ -52,6 +52,6 @@ These are little games I wrote using BlitzMax, pre 2010.
 
 ### Utilities
 
-*   [Flashlight2Kodi](https://github.com/Spacerat/Flashlight2Kodi "Flashlight2Kodi") - Control a Kodi server with Spotlight on a mac, using [Flashlight](https://github.com/nate-parrott/Flashlight). I have no idea if it still works
+*   [Flashlight2Kodi](https://github.com/Spacerat/Flashlight2Kodi "Flashlight2Kodi") - Control a Kodi server with Spotlight on a mac, using [Flashlight](https://github.com/nate-parrott/Flashlight). I have no idea if it still works.
 
 *   [Blitzmax Libraries](https://github.com/Spacerat/joe.mod "joe.mod") - a collection of the libraries I wrote for [BlitzMax](http://www.blitzbasic.com/Products/blitzmax.php)
