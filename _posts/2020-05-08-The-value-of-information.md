@@ -3,7 +3,6 @@ layout: post
 title:  "The value of information"
 date:   2020-05-14 08:15:00 -0700
 categories: maths
-tags: hide
 ---
 
 How much should you pay for information to help you make a decision?
@@ -194,11 +193,11 @@ In summary, the situations examined in this post suggest two guiding principles 
 
 Firstly, **the most you should pay for information is the amount you expect to lose if your default decision is wrong.**. This is because the most you'll pay for information is whatever you would pay for perfect information, and perfect information cannot cause you to change to a bad decision.
 
-Secondly, **strive to collect information which is not _potentially misleading_.** When the worst case is that information is useless, you don't have to consider the cost of switching to a bad decision, but when information can mislead you, then you must take into account the cost of being persuaded to make a bad decision.
+Secondly, **strive to collect information which is not _potentially misleading_**. When the worst case is that information is useless, you don't have to consider the cost of switching to a bad decision, but when information can mislead you, then you must take into account the cost of being persuaded to make a bad decision.
 
 It's worth noting that these principles rely on your initial estimates being vaguely correct, or at least honestly representative of how little you know. Producing [calibrated estimates] is a skill you can learn (another topic covered by Hubbard in How To Measure Anything).
 
-Ultimately, these were just simple examples. In the real world, there could be many variables at play, and decisions are often on a continuum, not just binary choices, and I hope to cover more complex situations in a future post. I wrote this post so that I could feel that I truly understand and believe Hubbard's statements on the value of information, with worked examples to reference, and in that sense it has been a success forme. I hope there was something interesting in here for you, too!
+Ultimately, these were just simple examples. In the real world, there will usually be many variables at play, and decisions are often on a continuum (not just yes/no), so I hope to cover more complex situations in a future post. I wrote this post so that I could feel that I truly understand and believe Hubbard's statements on the value of information - with worked examples to reference - and in that sense it has been a success for me. I hope there was something interesting in here for you, too!
 
 
 [probability mass function]: https://en.wikipedia.org/wiki/Probability_mass_function#Finite
