@@ -16,6 +16,14 @@ This post builds on top ideas in the book [How To Measure Anything] by Douglas W
 This post fills in the gaps, by examining the question of how much one should pay for information using a simple gambling game under the lens of maths and probability. We'll start by figuring out how much you should pay for perfect information on the outcome of the game, then move on to imperfect information, which might be unreliable or even misleading. Finally, we'll come away with some rules of thumb for thinking about the value of information.
 
 
+Jump to:
+
+- [The dice game]
+- [Perfect information]
+- [Imperfect (misleading) information]
+- [Imperfect (useless) information]
+- [Rules of thumb]
+
 
 ## The dice game
 
@@ -205,3 +213,9 @@ Ultimately, these were just simple examples. In the real world, there will usual
 [Expected Value]: https://en.wikipedia.org/wiki/Expected_value#Finite_case
 [How To Measure Anything]: https://www.howtomeasureanything.com/3rd-edition/
 [calibrated estimates]: https://en.wikipedia.org/wiki/Calibrated_probability_assessment
+
+[The dice game]: #the-dice-game
+[Perfect information]: #perfect-information
+[Imperfect (misleading) information]: #imperfect-misleading-information
+[Imperfect (useless) information]: #imperfect-useless-information
+[Rules of thumb]: #rules-of-thumb-for-thinking-about-the-value-of-information
